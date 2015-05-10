@@ -24,6 +24,8 @@ int main(int argc, char **argv)
 	int orig_count = 0;
 	json_object_object_foreach(my_object, key0, val0)
 	{
+    if(val0 == NULL)
+      continue;
 		printf("Key at index %d is [%s]", orig_count, key0);
 		if (strcmp(key0, "deleteme") == 0)
 		{
@@ -41,6 +43,8 @@ int main(int argc, char **argv)
 	orig_count = 0;
 	json_object_object_foreach(my_object, key, val)
 	{
+    if(val == NULL)
+      continue;
 		printf("Key at index %d is [%s]\n", orig_count, key);
 		orig_count++;
 		if (strcmp(key, "foo2") != 0)
@@ -56,6 +60,8 @@ int main(int argc, char **argv)
 	int retval = 0;
 	json_object_object_foreach(my_object, key2, val2)
 	{
+    if(val2 == NULL)
+      continue;
 		printf("Key at index %d is [%s]\n", new_count, key2);
 		new_count++;
 		if (strcmp(key2, "foo2") != 0)
